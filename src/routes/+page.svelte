@@ -1,7 +1,6 @@
 <script lang="ts">
-	// import Datatable from '../lib/components/Datatable.svelte';
+	import { format } from 'date-fns';
 	export let data;
-	console.log(data.records);
 </script>
 
 <div class="flex flex-col gap-2">
@@ -14,8 +13,9 @@
 	<table class="table table-hover">
 		<thead>
 			<tr>
-				<th>Date @ Time</th>
+				<th>Date -- Time</th>
 				<th>Event</th>
+				<th>City</th>
 				<th>Price</th>
 				<th>Organizer</th>
 			</tr>
@@ -23,8 +23,9 @@
 		<tbody>
 			{#each data.records as event, i}
 				<tr>
-					<td>{event.date}</td>
+					<td>{format(event.date.slice(0, -1), 'MMMM d --	h:mm aaa')}</td>
 					<td><a href={event.url} class="underline">{event.title}</a></td>
+					<td>{event.location}</td>
 					<td>{event.price}</td>
 					<td>{event.organizer}</td>
 				</tr>
