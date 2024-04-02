@@ -13,7 +13,7 @@
 	<table class="table table-hover">
 		<thead>
 			<tr>
-				<th>Date -- Time</th>
+				<th>Date and Time</th>
 				<th>Event</th>
 				<th>City</th>
 				<th>Price</th>
@@ -23,7 +23,7 @@
 		<tbody>
 			{#each data.records as event, i}
 				<tr>
-					<td>{format(event.date.slice(0, -1), 'MMMM d --	h:mm aaa')}</td>
+					<td>{format(event.date.slice(0, -1), 'EEEE, MMMM d · h:mm aaa')}</td>
 					<td><a href={event.url} class="underline">{event.title}</a></td>
 					<td>{event.location}</td>
 					<td>{event.price}</td>
