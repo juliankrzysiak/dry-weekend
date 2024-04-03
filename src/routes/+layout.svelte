@@ -8,7 +8,7 @@
 		<h1>desert weekend</h1>
 		<LightSwitch />
 	</header>
-	<main class="flex-1 flex flex-col gap-8">
+	<main class="flex-1">
 		<slot />
 	</main>
 	<footer>Made by Julian Krzysiak</footer>
