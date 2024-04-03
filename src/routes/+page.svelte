@@ -2,6 +2,7 @@
 	import RegionFilters from '$lib/components/RegionFilters.svelte';
 	import { format } from 'date-fns';
 	export let data;
+	let regions = ['Antelope Valley', 'Los Angeles'];
 </script>
 
 <div class="flex flex-col items-center gap-2">
@@ -9,7 +10,7 @@
 	<h3><i> curated by Julian Krzysiak</i></h3>
 </div>
 
-<RegionFilters />
+<RegionFilters bind:regions />
 
 <div class="table-container hidden md:block">
 	<table class="table table-hover">

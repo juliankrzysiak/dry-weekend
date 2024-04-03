@@ -1,25 +1,13 @@
 <script>
+    export let regions
+	const initialRegions = regions;
 </script>
 
 <div class="flex justify-center gap-4">
-	<label class="btn has-[:checked]:variant-ghost-primary variant-ghost-surface">
-		<input type="checkbox" checked />
-		<p>Antelope Valley</p>
-	</label>
-	<label class="btn btn-sm has-[:checked]:variant-ghost-primary variant-ghost-surface">
-		<input type="checkbox" checked />
-		<p>Los Angeles</p>
-	</label>
+	{#each initialRegions as region}
+		<label class="btn has-[:checked]:variant-ghost-primary variant-ghost-surface flex-1">
+			<input class="absolute opacity-0" type="checkbox" value={region} bind:group={regions} />
+			<p>{region}</p>
+		</label>
+	{/each}
 </div>
-
-<style>
-	input {
-		position: absolute;
-		opacity: 0;
-	}
-
-	label {
-		flex: 1;
-		margin: 0;
-	}
-</style>
