@@ -3,6 +3,7 @@
 	import { format } from 'date-fns';
 	export let data;
 	let regions = ['Antelope Valley', 'Los Angeles'];
+	$: records = data.records.filter(({ region }) => regions.includes(region));
 </script>
 
 <div class="flex flex-col items-center gap-2">
@@ -24,7 +25,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			{#each data.records as event, i}
+			{#each records as event}
 				<tr>
 					<td>{format(event.date.slice(0, -1), 'EEEE, MMMM d · h:mm aaa')}</td>
 					<td><a href={event.url} class="underline">{event.title}</a></td>
@@ -37,7 +38,7 @@
 	</table>
 </div>
 <div class="grid md:hidden gap-4">
-	{#each data.records as event}
+	{#each records as event}
 		<div class="card">
 			<header class="card-header flex justify-between">
 				<h2 class="text-xl">
