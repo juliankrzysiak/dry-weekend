@@ -3,9 +3,9 @@
 	export let data;
 </script>
 
-<div class="flex flex-col gap-2">
-	<h2 class="text-xl">find events to do near you</h2>
-	<h3>curated by Julian</h3>
+<div class="flex flex-col items-center py-8 gap-2">
+	<h2 class="text-xl">upcoming AV and LA events</h2>
+	<h3><i> curated by Julian Krzysiak</i></h3>
 </div>
 
 <div class="table-container hidden md:block">
