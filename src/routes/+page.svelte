@@ -1,12 +1,15 @@
 <script lang="ts">
+	import RegionFilters from '$lib/components/RegionFilters.svelte';
 	import { format } from 'date-fns';
 	export let data;
 </script>
 
-<div class="flex flex-col items-center py-8 gap-2">
+<div class="flex flex-col items-center gap-2">
 	<h2 class="text-xl">upcoming AV and LA events</h2>
 	<h3><i> curated by Julian Krzysiak</i></h3>
 </div>
+
+<RegionFilters />
 
 <div class="table-container hidden md:block">
 	<table class="table table-hover">
