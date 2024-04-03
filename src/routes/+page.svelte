@@ -3,7 +3,9 @@
 	import { format } from 'date-fns';
 	export let data;
 	let regions = ['Antelope Valley', 'Los Angeles'];
-	$: records = data.records.filter(({ region }) => regions.includes(region));
+	$: records = regions.length
+		? data.records.filter(({ region }) => regions.includes(region))
+		: data.records;
 </script>
 
 <div class="flex flex-col items-center gap-2">
