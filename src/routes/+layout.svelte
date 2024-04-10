@@ -12,7 +12,14 @@
 		<slot />
 	</main>
 	<footer class="flex justify-between">
-		<a href="https://juliankrzysiak.com/"> © 2024 Julian Krzysiak </a>
-		<a href="https://github.com/CastillejaCode/events">github</a>
+		<span>
+			© 2024
+			<a href="https://juliankrzysiak.com/" class="underline underline-offset-2">
+				Julian Krzysiak
+			</a>
+		</span>
+		<a href="https://github.com/CastillejaCode/events" class="underline underline-offset-2"
+			>github</a
+		>
 	</footer>
 </div>
