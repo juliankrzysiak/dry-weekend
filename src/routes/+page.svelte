@@ -1,6 +1,5 @@
 <script lang="ts">
 	import RegionFilters from '$lib/components/RegionFilters.svelte';
-	import { format } from 'date-fns';
 	export let data;
 	let regions = ['Antelope Valley', 'Los Angeles'];
 	$: records = regions.length
@@ -20,9 +19,9 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th>Date and Time</th>
+					<th>Date / Time</th>
 					<th>Event</th>
-					<th>City</th>
+					<th>Location</th>
 					<th>Price</th>
 					<th>Organizer</th>
 				</tr>
@@ -30,7 +29,7 @@
 			<tbody>
 				{#each records as event}
 					<tr>
-						<td>{format(event.date.slice(0, -1), 'EEEE, MMMM d · h:mm aaa')}</td>
+						<td>{event.date}</td>
 						<td><a href={event.url} class="underline">{event.title}</a></td>
 						<td>{event.location}</td>
 						<td>{event.price}</td>
@@ -43,7 +42,7 @@
 	<div class="grid md:hidden gap-4 w-full max-w-lg">
 		{#each records as event}
 			<div class="card">
-				<header class="card-header flex justify-between">
+				<header class="card-header flex justify-between items-center">
 					<h2 class="text-xl">
 						<a href={event.url} class="underline">{event.title}</a>
 					</h2>
@@ -51,15 +50,15 @@
 				</header>
 				<section class="p-4">
 					<strong>
-						{format(event.date.slice(0, -1), 'EEEE, MMMM d · h:mm aaa')}
+						{event.date}
 					</strong>
-					in
+					@
 					<strong>
 						{event.location}
 					</strong>
 				</section>
 				<footer class="card-footer">
-					Organized by <strong>{event.organizer} </strong>
+					By <strong>{event.organizer} </strong>
 				</footer>
 			</div>
 		{/each}
