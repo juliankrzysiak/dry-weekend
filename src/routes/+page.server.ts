@@ -22,3 +22,14 @@ export async function load() {
 	});
 	return { records };
 }
+
+export const actions = {
+	default: async ({ request }) => {
+		const data = await request.formData();
+
+		client.collection('suggestions').create({
+			title: data.get('title'),
+			url: data.get('url')
+		});
+	}
+};

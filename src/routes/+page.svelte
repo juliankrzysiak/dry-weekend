@@ -1,5 +1,6 @@
 <script lang="ts">
 	import RegionFilters from '$lib/components/RegionFilters.svelte';
+	import EventForm from '$lib/components/EventForm.svelte';
 	export let data;
 	let regions = ['Antelope Valley', 'Los Angeles'];
 	$: records = regions.length
@@ -44,7 +45,7 @@
 			<div class="card">
 				<header class="card-header flex justify-between items-center">
 					<h2 class="text-xl">
-						<a href={event.url} class="underline">{event.title}</a>
+						<a href={event.url} class="underline underline-offset-2">{event.title}</a>
 					</h2>
 					<p>${event.price}</p>
 				</header>
@@ -63,4 +64,6 @@
 			</div>
 		{/each}
 	</div>
+
+	<EventForm />
 </div>
