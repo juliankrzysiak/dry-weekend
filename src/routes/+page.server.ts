@@ -27,6 +27,8 @@ export const actions = {
 	default: async ({ request }) => {
 		const data = await request.formData();
 
+		if (data.get('username')) return;
+
 		client.collection('suggestions').create({
 			title: data.get('title'),
 			url: data.get('url')
