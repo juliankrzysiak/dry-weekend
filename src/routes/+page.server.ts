@@ -1,9 +1,10 @@
 import PocketBase from 'pocketbase';
 
-const pb = new PocketBase('http://127.0.0.1:8090');
+const url = 'https://dry-weekend.pockethost.io/';
+const client = new PocketBase(url);
 
 export async function load() {
-	const records = await pb.collection('events').getFullList({
+	const records = await client.collection('events').getFullList({
 		filter: 'date > @now',
 		sort: '+date'
 	});
