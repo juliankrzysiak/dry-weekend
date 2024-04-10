@@ -1,5 +1,7 @@
-<script>
+<script lang="ts">
 	import { enhance } from '$app/forms';
+	import type { ActionData } from '../../routes/$types';
+	export let form: ActionData;
 </script>
 
 <form method="POST" use:enhance class="flex flex-col gap-4 items-center my-16">
@@ -20,5 +22,9 @@
 		tabindex="-1"
 		autocomplete="new-password"
 	/>
-	<button class="btn variant-ghost-primary mt-8">Submit</button>
+	{#if form?.success}
+		<button class="btn variant-ghost-success mt-8" disabled>Thanks!</button>
+	{:else}
+		<button class="btn variant-ghost-primary mt-8">Submit</button>
+	{/if}
 </form>

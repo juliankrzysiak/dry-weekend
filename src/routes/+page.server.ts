@@ -1,5 +1,5 @@
-import PocketBase from 'pocketbase';
 import { format } from 'date-fns';
+import PocketBase from 'pocketbase';
 
 const url = 'https://dry-weekend.pockethost.io/';
 const client = new PocketBase(url);
@@ -27,11 +27,16 @@ export const actions = {
 	default: async ({ request }) => {
 		const data = await request.formData();
 
-		if (data.get('username')) return;
+		const title = data.get('title');
+		const url = data.get('url');
+		const username = data.get('username');
+
+		if (username) return;
 
 		client.collection('suggestions').create({
-			title: data.get('title'),
-			url: data.get('url')
+			title,
+			url
 		});
+		return { success: true };
 	}
 };

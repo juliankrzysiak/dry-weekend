@@ -1,7 +1,8 @@
 <script lang="ts">
-	import RegionFilters from '$lib/components/RegionFilters.svelte';
 	import EventForm from '$lib/components/EventForm.svelte';
+	import RegionFilters from '$lib/components/RegionFilters.svelte';
 	export let data;
+	export let form;
 	let regions = ['Antelope Valley', 'Los Angeles'];
 	$: records = regions.length
 		? data.records.filter(({ region }) => regions.includes(region))
@@ -66,4 +67,4 @@
 		{/each}
 	</div>
 </div>
-<EventForm />
+<EventForm bind:form />
