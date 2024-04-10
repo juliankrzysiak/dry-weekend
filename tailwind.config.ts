@@ -18,7 +18,8 @@ export default {
 			themes: {
 				preset: [
 					{
-						name: 'vintage'
+						name: 'vintage',
+						enhancements: true
 					}
 				]
 			}
