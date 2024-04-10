@@ -1,5 +1,5 @@
-<script>
-	export let regions;
+<script lang="ts">
+	export let regions: string[];
 	const initialRegions = regions;
 </script>
 
