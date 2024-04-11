@@ -44,7 +44,7 @@
 	</div>
 	<div class="grid md:hidden gap-4 w-full max-w-lg">
 		{#each records as event}
-			<div class="card">
+			<article class="card">
 				<header class="card-header flex justify-between items-center">
 					<h2 class="text-xl">
 						<a href={event.url} class="underline underline-offset-2">{event.title}</a>
@@ -63,7 +63,7 @@
 				<footer class="card-footer">
 					By <strong>{event.organizer} </strong>
 				</footer>
-			</div>
+			</article>
 		{/each}
 	</div>
 </div>
