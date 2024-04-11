@@ -18,7 +18,7 @@
 		<RegionFilters bind:regions />
 	</div>
 
-	<div class="table-container hidden md:block">
+	<div class="table-container hidden md:block max-w-screen-xl">
 		<table class="table table-hover">
 			<thead>
 				<tr>
