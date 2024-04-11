@@ -45,7 +45,7 @@
 	<div class="grid md:hidden gap-4 w-full max-w-lg">
 		{#each records as event}
 			<article class="card">
-				<header class="card-header flex justify-between items-center">
+				<header class="card-header flex gap-2 justify-between items-baseline">
 					<h2 class="text-xl">
 						<a href={event.url} class="underline underline-offset-2">{event.title}</a>
 					</h2>
