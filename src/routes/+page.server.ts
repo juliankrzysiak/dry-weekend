@@ -10,7 +10,7 @@ function removeUTC(date: string) {
 
 export async function load() {
 	const records = await client.collection('events').getFullList({
-		filter: 'date > @now',
+		filter: 'date > @now || endDate > @now',
 		sort: '+date'
 	});
 	records.map((record) => {
