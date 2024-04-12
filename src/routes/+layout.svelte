@@ -11,15 +11,11 @@
 	<main class="flex-1">
 		<slot />
 	</main>
-	<footer class="flex justify-between">
+	<footer class="flex justify-between text-sm">
 		<span>
 			© 2024
-			<a href="https://juliankrzysiak.com/" class="underline underline-offset-2">
-				Julian Krzysiak
-			</a>
+			<a href="https://juliankrzysiak.com/" class="underline"> Julian Krzysiak </a>
 		</span>
-		<a href="https://github.com/CastillejaCode/events" class="underline underline-offset-2"
-			>github</a
-		>
+		<a href="https://github.com/CastillejaCode/events" class="underline">github</a>
 	</footer>
 </div>
