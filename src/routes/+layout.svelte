@@ -3,8 +3,8 @@
 	import { LightSwitch } from '@skeletonlabs/skeleton';
 </script>
 
-<div class="px-8 pt-8 pb-2 flex flex-col min-h-screen">
-	<header class="flex justify-between text-2xl pb-8">
+<div class="flex min-h-screen flex-col px-8 pb-2 pt-8">
+	<header class="flex justify-between pb-8 text-2xl">
 		<h1>dry weekend</h1>
 		<LightSwitch />
 	</header>

@@ -11,8 +11,8 @@
 		: data.records;
 </script>
 
-<div class="flex-1 flex flex-col gap-12 items-center">
-	<div class="flex flex-col gap-8 items-center w-full">
+<div class="flex flex-1 flex-col items-center gap-12">
+	<div class="flex w-full flex-col items-center gap-8">
 		<div class="flex flex-col items-center gap-2">
 			<h2 class="text-xl">upcoming AV and LA events</h2>
 			<h3><i> curated by Julian</i></h3>

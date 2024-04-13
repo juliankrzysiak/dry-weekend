@@ -3,10 +3,10 @@
 	export let records: RecordModel[];
 </script>
 
-<div class="grid md:hidden gap-4 w-full max-w-lg">
+<div class="grid w-full max-w-lg gap-4 md:hidden">
 	{#each records as event}
 		<article class="card">
-			<header class="card-header flex gap-2 justify-between items-baseline">
+			<header class="card-header flex items-baseline justify-between gap-2">
 				<h2 class="text-xl">
 					<a href={event.url} class="underline underline-offset-2">{event.title}</a>
 				</h2>

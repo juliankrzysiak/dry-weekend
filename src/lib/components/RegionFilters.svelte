@@ -3,10 +3,10 @@
 	const initialRegions = regions;
 </script>
 
-<div class="flex justify-center gap-4 w-full max-w-sm">
+<div class="flex w-full max-w-sm justify-center gap-4">
 	{#each initialRegions as region}
 		<label
-			class="btn has-[:checked]:variant-ghost-primary variant-ghost-surface flex-1 has-[:focus-visible]:outline"
+			class="variant-ghost-surface btn flex-1 has-[:checked]:variant-ghost-primary has-[:focus-visible]:outline"
 		>
 			<input class="absolute opacity-0" type="checkbox" value={region} bind:group={regions} />
 			<p>{region}</p>

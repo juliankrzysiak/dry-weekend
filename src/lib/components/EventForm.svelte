@@ -4,7 +4,7 @@
 	export let form: ActionData;
 </script>
 
-<form method="POST" use:enhance class="flex flex-col gap-4 items-center my-16">
+<form method="POST" use:enhance class="my-16 flex flex-col items-center gap-4">
 	<h2 class="text-xl">Suggest Event</h2>
 	<label class="label">
 		<span>Title *</span>
@@ -23,8 +23,8 @@
 		autocomplete="new-password"
 	/>
 	{#if form?.success}
-		<button class="btn variant-ghost-success mt-8" disabled>Thanks!</button>
+		<button class="variant-ghost-success btn mt-8" disabled>Thanks!</button>
 	{:else}
-		<button class="btn variant-ghost-primary mt-8">Submit</button>
+		<button class="variant-ghost-primary btn mt-8">Submit</button>
 	{/if}
 </form>

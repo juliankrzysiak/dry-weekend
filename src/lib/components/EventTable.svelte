@@ -3,7 +3,7 @@
 	export let records: RecordModel[];
 </script>
 
-<div class="table-container hidden md:block max-w-screen-xl">
+<div class="table-container hidden max-w-screen-xl md:block">
 	<table class="table table-hover">
 		<thead>
 			<tr>
