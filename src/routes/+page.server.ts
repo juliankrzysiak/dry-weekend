@@ -1,14 +1,14 @@
 import { format } from 'date-fns';
 import PocketBase from 'pocketbase';
 
-const url = 'https://dry-weekend.pockethost.io/';
-const client = new PocketBase(url);
+const pbURL = 'https://dry-weekend.pockethost.io/';
 
 function removeUTC(date: string) {
 	return date.slice(0, -1);
 }
 
 export async function load() {
+	const client = new PocketBase(pbURL);
 	const records = await client.collection('events').getFullList({
 		filter: 'date > @now || endDate > @now',
 		sort: '+date'
@@ -25,6 +25,7 @@ export async function load() {
 
 export const actions = {
 	default: async ({ request }) => {
+		const client = new PocketBase(pbURL);
 		const data = await request.formData();
 
 		const title = data.get('title');
