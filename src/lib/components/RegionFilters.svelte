@@ -5,7 +5,9 @@
 
 <div class="flex justify-center gap-4 w-full max-w-sm">
 	{#each initialRegions as region}
-		<label class="btn has-[:checked]:variant-ghost-primary variant-ghost-surface flex-1 m-0">
+		<label
+			class="btn has-[:checked]:variant-ghost-primary variant-ghost-surface flex-1 has-[:focus-visible]:outline"
+		>
 			<input class="absolute opacity-0" type="checkbox" value={region} bind:group={regions} />
 			<p>{region}</p>
 		</label>
