@@ -22,9 +22,7 @@
 		tabindex="-1"
 		autocomplete="new-password"
 	/>
-	{#if form?.success}
-		<button class="variant-ghost-success btn mt-8" disabled>Thanks!</button>
-	{:else}
-		<button class="variant-ghost-primary btn mt-8">Submit</button>
-	{/if}
+	<button class="variant-ghost-primary btn mt-8" disabled={form?.success}
+		>{form?.success ? 'Thanks!' : 'Submit'}</button
+	>
 </form>
