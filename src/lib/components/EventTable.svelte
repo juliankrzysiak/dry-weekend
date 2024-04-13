@@ -4,7 +4,7 @@
 </script>
 
 <div class="table-container hidden max-w-screen-xl md:block">
-	<table class="table table-hover">
+	<table class="table table-hover table-comfortable">
 		<thead>
 			<tr>
 				<th>Date / Time</th>
@@ -27,3 +27,5 @@
 		</tbody>
 	</table>
 </div>
+
+
