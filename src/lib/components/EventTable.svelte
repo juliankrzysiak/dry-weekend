@@ -10,22 +10,23 @@
 				<th>Date / Time</th>
 				<th>Event</th>
 				<th>Location</th>
-				<th>Price</th>
 				<th>Organizer</th>
+				<th class="text-right">Price</th>
 			</tr>
 		</thead>
 		<tbody>
 			{#each records as event}
 				<tr>
 					<td>{event.date}</td>
-					<td><a href={event.url} class="underline">{event.title}</a></td>
+					<td
+						><a href={event.url} class="font-bold underline underline-offset-2">{event.title}</a
+						></td
+					>
 					<td>{event.location}</td>
-					<td>{event.price}</td>
 					<td>{event.organizer}</td>
+					<td class="text-right">{event.price}</td>
 				</tr>
 			{/each}
 		</tbody>
 	</table>
 </div>
-
-
