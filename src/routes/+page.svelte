@@ -5,7 +5,7 @@
 	import RegionFilters from '$lib/components/RegionFilters.svelte';
 	export let data;
 	export let form;
-	let regions = ['Antelope Valley', 'Los Angeles'];
+	let regions: string[] = [];
 	$: records = regions.length
 		? data.records.filter(({ region }) => regions.includes(region))
 		: data.records;

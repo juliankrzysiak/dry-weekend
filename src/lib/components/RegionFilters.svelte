@@ -1,10 +1,9 @@
 <script lang="ts">
 	export let regions: string[];
-	const initialRegions = regions;
 </script>
 
 <fieldset class="flex w-full max-w-sm justify-center gap-4">
-	{#each initialRegions as region}
+	{#each ['Antelope Valley', 'Los Angeles'] as region}
 		<label
 			class="variant-ghost-surface btn flex-1 has-[:checked]:variant-ghost-primary has-[:focus-visible]:outline"
 		>
