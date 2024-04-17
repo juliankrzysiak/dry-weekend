@@ -2,7 +2,7 @@
 	import { fade, scale } from 'svelte/transition';
 
 	export let clicks = 0;
-	let easterEgg = false;
+	export let easterEgg = false;
 
 	function showEasterEgg() {
 		easterEgg = true;
@@ -14,12 +14,13 @@
 
 	function resetEasterEgg() {
 		clicks = 0;
+		easterEgg = false;
 	}
 </script>
 
 {#if clicks >= 3}
-	<div class="flex max-w-xl flex-col items-center">
-		<button on:click={resetEasterEgg} class="variant-ghost-error btn mb-4">Reset Easter Egg</button>
+	<div class="flex max-w-xl flex-col items-center gap-4">
+		<button on:click={resetEasterEgg} class="variant-ghost-error btn">Reset Easter Egg</button>
 		<audio
 			on:play={showEasterEgg}
 			on:pause={hideEasterEgg}
