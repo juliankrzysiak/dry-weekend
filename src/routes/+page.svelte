@@ -9,6 +9,7 @@
 	export let form;
 
 	let clicks = 0;
+	$: console.log(clicks);
 
 	function addClick() {
 		clicks += 1;
