@@ -3,7 +3,7 @@
 	export let records: RecordModel[];
 </script>
 
-<div class="grid w-full max-w-lg gap-6 md:hidden">
+<div class="grid w-full max-w-lg gap-5 md:hidden">
 	{#each records as event}
 		<article class="card">
 			<header class="card-header flex items-baseline justify-between gap-2">
