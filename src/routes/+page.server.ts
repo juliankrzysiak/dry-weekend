@@ -11,14 +11,16 @@ function removeUTC(date: string) {
 // But the local time is taking the time offset into account, so I have to subtract that in order to compare the two.
 
 function convertToLocalUTC(date: Date): string {
+	console.log('provided date', date);
 	const convertedDate = sub(date, { hours: 7 });
+	console.log('converted date');
 	return convertedDate.toISOString().replace('T', ' ');
 }
 
 export async function load() {
 	const client = new PocketBase(pbURL);
-	const now = convertToLocalUTC(new Date());
-	console.log(now);
+	const now = convertToLocalUTC(new Date(Date.now()));
+	console.log('now', now);
 	const records = await client.collection('events').getFullList({
 		filter: `date >= "${now}" || endDate >= "${now}"`,
 		sort: '+date'
