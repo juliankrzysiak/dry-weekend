@@ -8,19 +8,21 @@ function removeUTC(date: string) {
 }
 
 // I can only store the db date in UTC, and I dont wan't to convert it to the "correct time" there.
-// But the local time is taking the time offset into account, so I have to subtract that in order to compare the two. 
-function convertToLocalUTC(date: Date): string {
-	const convertedDate = sub(date, { hours: date.getTimezoneOffset() / 60 });
-	return convertedDate.toISOString().replace('T', ' ');
-}
+// But the local time is taking the time offset into account, so I have to subtract that in order to compare the two.
 
 export async function load() {
+	function convertToLocalUTC(date: Date): string {
+		const convertedDate = sub(date, { hours: date.getTimezoneOffset() / 60 });
+		return convertedDate.toISOString().replace('T', ' ');
+	}
 	const client = new PocketBase(pbURL);
 	const now = convertToLocalUTC(new Date());
+	console.log(now);
 	const records = await client.collection('events').getFullList({
 		filter: `date >= "${now}" || endDate >= "${now}"`,
 		sort: '+date'
 	});
+	console.log(records);
 	records.map((record) => {
 		if (record.endDate) {
 			const firstDate = format(removeUTC(record.date), 'EEEE, MMMM d');
