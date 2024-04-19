@@ -1,4 +1,4 @@
-import { format } from 'date-fns';
+import { format, sub } from 'date-fns';
 import PocketBase from 'pocketbase';
 
 const pbURL = 'https://dry-weekend.pockethost.io/';
@@ -7,10 +7,18 @@ function removeUTC(date: string) {
 	return date.slice(0, -1);
 }
 
+// I can only store the db date in UTC, and I dont wan't to convert it to the "correct time" there.
+// But the local time is taking the time offset into account, so I have to subtract that in order to compare the two. 
+function convertToLocalUTC(date: Date): string {
+	const convertedDate = sub(date, { hours: date.getTimezoneOffset() / 60 });
+	return convertedDate.toISOString().replace('T', ' ');
+}
+
 export async function load() {
 	const client = new PocketBase(pbURL);
+	const now = convertToLocalUTC(new Date());
 	const records = await client.collection('events').getFullList({
-		filter: 'date > @now || endDate > @now',
+		filter: `date >= "${now}" || endDate >= "${now}"`,
 		sort: '+date'
 	});
 	records.map((record) => {
