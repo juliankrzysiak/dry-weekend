@@ -10,7 +10,7 @@ function removeUTC(date: string) {
 // I can only store the db date in UTC, and I dont wan't to convert it to the "correct time" there.
 // But the local time is taking the time offset into account, so I have to subtract that in order to compare the two.
 function convertToLocalUTC(date: Date): string {
-	const convertedDate = sub(date, { hours: date.getTimezoneOffset() / 60 });
+	const convertedDate = sub(date, { hours: 7 });
 	return convertedDate.toISOString().replace('T', ' ');
 }
 
