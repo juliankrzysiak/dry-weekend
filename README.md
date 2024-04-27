@@ -112,7 +112,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Julian Krzysiak - jkrzysiak13@gmail.com
 
-Project Link - Project Link: https://github.com/CastillejaCode/dry-weekend
+Project Link: https://github.com/CastillejaCode/dry-weekend
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
