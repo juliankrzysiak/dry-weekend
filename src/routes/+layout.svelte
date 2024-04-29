@@ -11,11 +11,24 @@
 	<main class="flex-1">
 		<slot />
 	</main>
-	<footer class="flex justify-between text-sm">
-		<span>
-			© 2024
-			<a href="https://juliankrzysiak.com/" class="underline"> Julian Krzysiak </a>
-		</span>
-		<a href="https://github.com/CastillejaCode/events" class="underline">github</a>
+	<footer class="flex flex-col items-center gap-8 text-center text-sm">
+		<span
+			>for event corrections or other inquiries, contact us at
+			<br />
+			<a href="mailto:support@dryweekend.com"> support@dryweekend.com</a></span
+		>
+		<div class="flex w-full justify-between gap-4">
+			<span>
+				© 2024
+				<a href="https://juliankrzysiak.com/"> Julian Krzysiak </a>
+			</span>
+			<a href="https://github.com/CastillejaCode/events">github</a>
+		</div>
 	</footer>
 </div>
+
+<style>
+	a {
+		text-decoration: underline;
+	}
+</style>
