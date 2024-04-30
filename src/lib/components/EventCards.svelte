@@ -12,8 +12,13 @@
 				</h2>
 				<p>${event.price}</p>
 			</header>
-			<section class="px-4 pb-2 pt-4">
-				<p>
+			<section class="px-4 pb-1 pt-4">
+				{#if event.description}
+					<p class="text-lg opacity-50">
+						{event.description}
+					</p>
+				{/if}
+				<p class="pt-4">
 					{event.date} <span class="opacity-50">@</span>
 					{event.location}
 				</p>
