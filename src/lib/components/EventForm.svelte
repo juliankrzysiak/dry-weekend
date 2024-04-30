@@ -22,7 +22,7 @@
 		tabindex="-1"
 		autocomplete="new-password"
 	/>
-	<button class="variant-ghost-primary btn mt-8" disabled={form?.success}
+	<button class="variant-ghost-primary btn mt-6" disabled={form?.success}
 		>{form?.success ? 'Thanks!' : 'Submit'}</button
 	>
 </form>

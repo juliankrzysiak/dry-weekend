@@ -11,13 +11,13 @@
 	<main class="flex-1">
 		<slot />
 	</main>
-	<footer class="flex flex-col items-center gap-8 text-center text-sm">
+	<footer class=" flex flex-col gap-8 text-center">
 		<span
 			>for event corrections or other inquiries, contact us at
 			<br />
 			<a href="mailto:support@dryweekend.com"> support@dryweekend.com</a></span
 		>
-		<div class="flex w-full justify-between gap-4">
+		<div class="-mx-4 flex justify-between text-sm">
 			<span>
 				© 2024
 				<a href="https://juliankrzysiak.com/"> Julian Krzysiak </a>
