@@ -12,9 +12,9 @@
 				</h2>
 				<p>${event.price}</p>
 			</header>
-			<section class="px-4 pb-1 pt-4">
+			<section class="px-4 pb-1">
 				{#if event.description}
-					<p class="text-lg opacity-50">
+					<p class="pt-4 text-lg opacity-50">
 						{event.description}
 					</p>
 				{/if}
