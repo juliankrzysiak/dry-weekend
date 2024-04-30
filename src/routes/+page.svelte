@@ -8,15 +8,16 @@
 	export let data;
 	export let form;
 
-	// Just for the Easter Egg
+	// Easter Egg //
 	let clicks = 0;
 	let easterEgg = false;
 
 	function addClick() {
 		clicks += 1;
 	}
+	// Easter Egg
 
-	let regions: string[] = [];
+	let regions: string[] = data.regions;
 	$: records = regions.length
 		? data.records.filter(({ region }) => regions.includes(region))
 		: data.records;

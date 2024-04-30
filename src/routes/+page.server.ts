@@ -14,7 +14,7 @@ function convertToLocalUTC(date: Date): string {
 	return convertedDate.toISOString().replace('T', ' ');
 }
 
-export async function load() {
+export async function load({ cookies }) {
 	const client = new PocketBase(pbURL);
 	const now = convertToLocalUTC(new Date(Date.now()));
 	const records = await client.collection('events').getFullList({
@@ -28,7 +28,10 @@ export async function load() {
 			return (record.date = `${firstDate} - ${secondDate}`);
 		} else return (record.date = format(removeUTC(record.date), 'EEEE, MMMM d · h:mm aaa'));
 	});
-	return { records };
+
+	const regionsCookie = cookies.get('regions');
+	const regions = regionsCookie ? JSON.parse(regionsCookie) : [];
+	return { records, regions };
 }
 
 export const actions = {
@@ -48,4 +51,10 @@ export const actions = {
 		});
 		return { success: true };
 	}
+
+	// saveRegions: async ({ request, cookies }) => {
+	// 	const data = await request.formData();
+	// 	const regions = JSON.stringify(data.getAll('region'));
+	// 	cookies.set('regions', regions, { path: '/' });
+	// }
 };
