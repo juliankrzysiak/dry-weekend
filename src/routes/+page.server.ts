@@ -19,7 +19,7 @@ export async function load({ cookies }) {
 	const now = convertToLocalUTC(new Date(Date.now()));
 	const records = await client.collection('events').getFullList({
 		filter: `date >= "${now}" || endDate >= "${now}"`,
-		sort: '+date'
+		sort: 'date,endDate'
 	});
 	records.map((record) => {
 		if (record.endDate) {
