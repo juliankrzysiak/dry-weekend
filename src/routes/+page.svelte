@@ -4,6 +4,7 @@
 	import EventTable from '$lib/components/EventTable.svelte';
 	import RegionFilters from '$lib/components/RegionFilters.svelte';
 	import EasterEgg from '$lib/components/EasterEgg.svelte';
+	import EventTypeFilters from '$lib/components/EventTypeFilters.svelte';
 
 	export let data;
 	export let form;
@@ -18,9 +19,10 @@
 	// Easter Egg
 
 	let regions: string[] = data.regions;
-	$: records = regions.length
-		? data.records.filter(({ region }) => regions.includes(region))
-		: data.records;
+	let eventTypes: string[] = [];
+	$: records = data.records
+		.filter(({ region }) => regions.includes(region) || !regions.length)
+		.filter(({ type }) => eventTypes.includes(type) || !eventTypes.length);
 </script>
 
 <div class="flex flex-1 flex-col items-center gap-8">
@@ -37,6 +39,7 @@
 		</div>
 		<EasterEgg bind:clicks bind:easterEgg />
 		<RegionFilters bind:regions />
+		<EventTypeFilters bind:eventTypes/>
 	</div>
 	<EventTable bind:records />
 	<EventCards bind:records />
