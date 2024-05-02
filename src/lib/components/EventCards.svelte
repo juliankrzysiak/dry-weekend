@@ -14,18 +14,18 @@
 			</header>
 			<section class="px-4 pb-1">
 				{#if event.description}
-					<p class="pt-4 text-lg opacity-50">
+					<p class="pt-4 text-lg opacity-55">
 						{event.description}
 					</p>
 				{/if}
 				<p class="pt-4">
-					{event.date} <span class="opacity-50">@</span>
+					{event.date} <span class="opacity-55">@</span>
 					{event.location}
 				</p>
 			</section>
 			<footer class="card-footer flex items-center justify-between gap-2">
 				<p>
-					<span class="opacity-50">By</span>
+					<span class="opacity-55">By</span>
 					{event.organizer}
 				</p>
 				{#if event.recurring}
