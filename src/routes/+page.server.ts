@@ -21,11 +21,13 @@ export async function load({ cookies }) {
 		filter: `date >= "${now}" || endDate >= "${now}"`,
 		sort: '-date'
 	});
+
 	records.sort((a, b) => {
 		if ((a.endDate ?? a.date) > b.date) return 1;
 		if ((a.endDate ?? a.date) < b.date) return -1;
 		return 0;
 	});
+
 	records.map((record) => {
 		if (record.endDate) {
 			const firstDate = format(removeUTC(record.date), 'EEEE, MMMM d');
@@ -56,10 +58,4 @@ export const actions = {
 		});
 		return { success: true };
 	}
-
-	// saveRegions: async ({ request, cookies }) => {
-	// 	const data = await request.formData();
-	// 	const regions = JSON.stringify(data.getAll('region'));
-	// 	cookies.set('regions', regions, { path: '/' });
-	// }
 };
