@@ -1,10 +1,18 @@
 <script lang="ts">
+	import formatDate from '$lib';
+	import { isAfter, endOfWeek } from 'date-fns';
 	import type { RecordModel } from 'pocketbase';
 	export let records: RecordModel[];
+
+	function checkLastEventOfWeek(index: number) {
+		const endDate = endOfWeek(records[index]?.endDate || records[index]?.date, { weekStartsOn: 1 });
+		const nextDate = records[index + 1]?.endDate || records[index + 1]?.date;
+		return isAfter(nextDate, endDate);
+	}
 </script>
 
 <div class="grid w-full max-w-lg gap-5 md:hidden">
-	{#each records as event}
+	{#each records as event, i (event.id)}
 		<article class="card">
 			<header class="card-header flex items-baseline justify-between gap-2">
 				<h2 class="text-xl font-bold">
@@ -19,7 +27,7 @@
 					</p>
 				{/if}
 				<p class="pt-4">
-					{event.date} <span class="opacity-55">@</span>
+					{formatDate(event.date, event.endDate)} <span class="opacity-55">@</span>
 					{event.location}
 				</p>
 			</section>
@@ -47,5 +55,8 @@
 				{/if}
 			</footer>
 		</article>
+		{#if checkLastEventOfWeek(i)}
+			<hr class="!mx-auto !my-2 !w-1/2 !rounded-xl !border-t-2" />
+		{/if}
 	{/each}
 </div>

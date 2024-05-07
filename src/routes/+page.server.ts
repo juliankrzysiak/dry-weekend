@@ -1,11 +1,7 @@
-import { format, sub } from 'date-fns';
+import { sub } from 'date-fns';
 import PocketBase from 'pocketbase';
 
 const pbURL = 'https://dry-weekend.pockethost.io/';
-
-function removeUTC(date: string) {
-	return date.slice(0, -1);
-}
 
 // I can only store the db date in UTC, and I dont wan't to convert it to the "correct time" there.
 // But the local time is taking the time offset into account, so I have to subtract that in order to compare the two.
@@ -26,14 +22,6 @@ export async function load({ cookies }) {
 		if ((a.endDate ?? a.date) > b.date) return 1;
 		if ((a.endDate ?? a.date) < b.date) return -1;
 		return 0;
-	});
-
-	records.map((record) => {
-		if (record.endDate) {
-			const firstDate = format(removeUTC(record.date), 'EEEE, MMMM d');
-			const secondDate = format(removeUTC(record.endDate), 'd');
-			return (record.date = `${firstDate} - ${secondDate}`);
-		} else return (record.date = format(removeUTC(record.date), 'EEEE, MMMM d · h:mm aaa'));
 	});
 
 	const regionsCookie = cookies.get('regions');
