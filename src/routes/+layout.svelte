@@ -22,7 +22,7 @@
 				© 2024
 				<a href="https://juliankrzysiak.com/"> Julian Krzysiak </a>
 			</span>
-			<a href="https://github.com/CastillejaCode/events">github</a>
+			<a href="https://github.com/juliankrzysiak/dry-weekend">github</a>
 		</div>
 	</footer>
 </div>
