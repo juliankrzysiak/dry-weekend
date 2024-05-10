@@ -1,4 +1,5 @@
 <script lang="ts">
+	import formatDate from '$lib';
 	import type { RecordModel } from 'pocketbase';
 	export let records: RecordModel[];
 </script>
@@ -17,7 +18,7 @@
 		<tbody>
 			{#each records as event}
 				<tr>
-					<td>{event.date}</td>
+					<td>{formatDate(event.date, event.endDate)}</td>
 					<td
 						><a href={event.url} class="font-bold underline underline-offset-2">{event.title}</a
 						></td
