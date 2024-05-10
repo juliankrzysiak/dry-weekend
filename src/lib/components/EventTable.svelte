@@ -1,5 +1,5 @@
 <script lang="ts">
-	import formatDate from '$lib';
+	import { formatDate, checkLastEventOfWeek } from '$lib';
 	import type { RecordModel } from 'pocketbase';
 	export let records: RecordModel[];
 </script>
@@ -16,8 +16,8 @@
 			</tr>
 		</thead>
 		<tbody>
-			{#each records as event}
-				<tr>
+			{#each records as event, index (event.id)}
+				<tr class={`${checkLastEventOfWeek(records, index) && '!border-b-8'}`}>
 					<td>{formatDate(event.date, event.endDate)}</td>
 					<td
 						><a href={event.url} class="font-bold underline underline-offset-2">{event.title}</a
