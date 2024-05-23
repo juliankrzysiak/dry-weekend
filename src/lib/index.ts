@@ -14,7 +14,7 @@ function removeUTC(date: string) {
 }
 
 export function checkLastEventOfWeek(records: RecordModel[], index: number) {
-	const endDate = endOfWeek(records[index]?.endDate || records[index]?.date, { weekStartsOn: 1 });
+	const endDate = endOfWeek(records[index]?.endDate || records[index]?.date, { weekStartsOn: 2 });
 	const nextDate = records[index + 1]?.endDate || records[index + 1]?.date;
 	return isAfter(nextDate, endDate);
 }
