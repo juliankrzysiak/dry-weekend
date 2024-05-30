@@ -17,7 +17,9 @@
 		</thead>
 		<tbody>
 			{#each records as event, index (event.id)}
-				<tr class={`${checkLastEventOfWeek(records, index) && '!border-b-8'}`}>
+				<tr
+					class={`${checkLastEventOfWeek(records, index) && '!border-b-1 !border-b-primary-500/40'}`}
+				>
 					<td>{formatDate(event.date, event.endDate)}</td>
 					<td
 						><a href={event.url} class="font-bold underline underline-offset-2">{event.title}</a
