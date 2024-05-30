@@ -49,7 +49,7 @@
 			</footer>
 		</article>
 		{#if checkLastEventOfWeek(records, index)}
-			<hr class="!mx-auto !my-2 !w-1/2 !rounded-xl !border-t-2" />
+			<hr class="!mx-auto !my-1 !w-1/2 !rounded-xl !border-t-2 !border-primary-500/40" />
 		{/if}
 	{/each}
 </div>
