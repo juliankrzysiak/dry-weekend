@@ -2,26 +2,26 @@
 	import { browser } from '$app/environment';
 	import { RadioGroup, RadioItem } from '@skeletonlabs/skeleton';
 
-	export let regions: string[];
+	export let region: string;
 
 	function saveRegionsAsCookies() {
 		if (!browser) return;
-		const regionsCookie = `regions=${JSON.stringify(regions)}; SameSite=Strict Secure`;
+		const regionsCookie = `region=${JSON.stringify(region)}; SameSite=Strict Secure`;
 		document.cookie = regionsCookie;
 	}
 </script>
 
 <RadioGroup class="flex gap-2">
-	{#each ['Antelope Valley', 'Los Angeles'] as region}
+	{#each ['Antelope Valley', 'Los Angeles'] as place}
 		<RadioItem
-			bind:group={regions}
+			bind:group={region}
 			name="justify"
-			value={region}
+			value={place}
 			active="variant-ghost-primary"
 			hover="hover:variant-outline-primary"
 			on:change={saveRegionsAsCookies}
 		>
-			{region}
+			{place}
 		</RadioItem>
 	{/each}
 </RadioGroup>

@@ -17,10 +17,8 @@
 	}
 	// Easter Egg
 
-	let regions: string[] = data.regions;
-	$: records = regions.length
-		? data.records.filter(({ region }) => regions.includes(region))
-		: data.records;
+	let region: string = data.region;
+	$: records = data.records.filter((record) => record.region === region);
 </script>
 
 <div class="flex flex-1 flex-col items-center gap-8">
@@ -36,7 +34,7 @@
 			</h3>
 		</div>
 		<EasterEgg bind:clicks bind:easterEgg />
-		<RegionFilters bind:regions />
+		<RegionFilters bind:region />
 	</div>
 	<EventTable bind:records />
 	<EventCards bind:records />

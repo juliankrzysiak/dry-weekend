@@ -25,9 +25,8 @@ export async function load({ cookies }) {
 		return 0;
 	});
 
-	const regionsCookie = cookies.get('regions');
-	const regions = regionsCookie ? JSON.parse(regionsCookie) : [];
-	return { records, regions };
+	const region = cookies.get('region') || 'Los Angeles';
+	return { records, region };
 }
 
 export const actions = {
