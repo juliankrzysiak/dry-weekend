@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
+	import { RadioGroup, RadioItem } from '@skeletonlabs/skeleton';
 
 	export let regions: string[];
 
@@ -10,15 +11,17 @@
 	}
 </script>
 
-<fieldset class="flex w-full max-w-sm justify-center gap-4" on:change={saveRegionsAsCookies}>
+<RadioGroup class="flex gap-2">
 	{#each ['Antelope Valley', 'Los Angeles'] as region}
-		<label
-			class="variant-ghost-surface btn flex-1 cursor-pointer has-[:checked]:variant-ghost-primary has-[:focus-visible]:outline"
+		<RadioItem
+			bind:group={regions}
+			name="justify"
+			value={region}
+			active="variant-ghost-primary"
+			hover="hover:variant-outline-primary"
+			on:change={saveRegionsAsCookies}
 		>
-			<span>
-				<input class="absolute opacity-0" type="checkbox" value={region} bind:group={regions} />
-				<p>{region}</p>
-			</span>
-		</label>
+			{region}
+		</RadioItem>
 	{/each}
-</fieldset>
+</RadioGroup>
