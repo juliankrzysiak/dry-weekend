@@ -13,10 +13,10 @@
 	export let records: RecordModel[];
 </script>
 
-<div class="grid w-screen place-content-center overflow-hidden px-8">
-	<div class="grid max-w-lg gap-5 md:hidden">
+<div class="flex w-screen flex-col items-center overflow-hidden px-8">
+	<div class="flex w-full max-w-lg flex-col items-center gap-4 md:hidden">
 		{#each records as event, index (event.id)}
-			<article class="card" in:fly={randomizeTransition()}>
+			<article class="card min-w-full" in:fly={randomizeTransition()}>
 				<header class="card-header flex items-baseline justify-between gap-2">
 					<h2 class="text-xl font-bold">
 						<a href={event.url} class="underline underline-offset-2">{event.title}</a>
