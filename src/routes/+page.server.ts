@@ -1,22 +1,14 @@
-import { addMonths, sub } from 'date-fns';
+import { parseDate } from '$lib';
+import { addMonths } from 'date-fns';
 import PocketBase from 'pocketbase';
 
 const pbURL = 'https://dry-weekend.pockethost.io/';
 
-// I can only store the db date in UTC, and I dont wan't to convert it to the "correct time" there.
-// But the local time is taking the time offset into account, so I have to subtract that in order to compare the two.
-function parseDate(date: Date): string {
-	const convertedDate = sub(date, { hours: 7 });
-	return convertedDate.toISOString().slice(0, 10);
-}
-
 export async function load({ cookies }) {
 	const client = new PocketBase(pbURL);
-	const todayDate = parseDate(new Date(Date.now()));
-	const monthAwayDate = parseDate(addMonths(todayDate, 1));
-	// Comparing timestamp to date to keep today's event visible until tomorrow
+	const monthAwayDate = parseDate(addMonths(Date.now(), 1));
 	const records = await client.collection('events').getFullList({
-		filter: `(date >= "${todayDate}" || endDate >= "${todayDate}") && date <= "${monthAwayDate}"`,
+		filter: `(date >= @todayStart || endDate >= @todayStart) && date <= "${monthAwayDate}"`,
 		sort: '-date'
 	});
 
