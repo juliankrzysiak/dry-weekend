@@ -1,6 +1,6 @@
 const securityHeaders = {
 	'Content-Security-Policy':
-		"default-src 'self' https:; img-src 'self' data:; frame-ancestors 'none'; script-src 'self' 'unsafe-inline'",
+		"default-src 'self'; img-src 'self' data:; frame-ancestors 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'",
 	'Referrer-Policy': 'same-origin',
 	'Strict-Transport-Security': 'max-age=63072000',
 	'X-Content-Type-Options': 'nosniff'
