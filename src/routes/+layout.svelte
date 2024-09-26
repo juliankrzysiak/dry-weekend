@@ -1,6 +1,6 @@
 <script lang="ts">
-	import '../app.postcss';
 	import { LightSwitch } from '@skeletonlabs/skeleton';
+	import '../app.postcss';
 </script>
 
 <div class="flex min-h-screen flex-col px-8 pb-2 pt-8">
