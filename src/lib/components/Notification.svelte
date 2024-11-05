@@ -1,9 +1,8 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	let visible = true;
-	let title = 'On Hiatus!';
-	let message =
-		"I will be on vacation for ~ 2 weeks, so new events won't be added until then. Thank you!";
+	let title = 'Remember to vote!';
+	let message = "It's cool and fun!";
 </script>
 
 {#if visible}
