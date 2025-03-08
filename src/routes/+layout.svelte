@@ -5,7 +5,7 @@
 
 <div class="flex min-h-screen flex-col px-8 pb-2 pt-8">
 	<header class="flex justify-between pb-8 text-2xl">
-		<h1 title="Love is in the air">dry weekend</h1>
+		<h1 title="Luck is on your side!">dry weekend</h1>
 		<LightSwitch />
 	</header>
 	<main class="flex-1">
@@ -29,7 +29,7 @@
 
 <style>
 	h1::after {
-		content: '❤️';
+		content: '🍀';
 		padding-left: 0.5rem;
 	}
 
