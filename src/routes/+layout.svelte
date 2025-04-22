@@ -1,11 +1,30 @@
 <script lang="ts">
 	import { LightSwitch } from '@skeletonlabs/skeleton';
 	import '../app.postcss';
+
+	const seasonalFlair = [
+		['❄️', 'Snuggle up!'],
+		['❤️', 'Love is in the air!'],
+		['🍀', 'Luck is on your side!'],
+		['🌻', 'Spring has sprung!'],
+		['🇲🇽', 'Cinco de Mayo!'],
+		['🌈', 'Happy pride month!'],
+		['🎆', 'AMERICA!!!'],
+		['☀️', 'Beach time!'],
+		['📚', 'Back to School!'],
+		['🎃', 'It is the Spooky Month!'],
+		['🦃', 'GOBBLE GOBBLE!'],
+		['🎄', 'Merry Christmas!']
+	];
+
+	const currentMonthIndex = new Date().getMonth();
+	const seasonalEmoji = seasonalFlair[currentMonthIndex][0];
+	const seasonalTitle = seasonalFlair[currentMonthIndex][1];
 </script>
 
 <div class="flex min-h-screen flex-col px-8 pb-2 pt-8">
 	<header class="flex justify-between pb-8 text-2xl">
-		<h1 title="Luck is on your side!">dry weekend</h1>
+		<h1 title={seasonalTitle}>{'dry weekend ' + seasonalEmoji}</h1>
 		<LightSwitch />
 	</header>
 	<main class="flex-1">
@@ -28,11 +47,6 @@
 </div>
 
 <style>
-	h1::after {
-		content: '🍀';
-		padding-left: 0.5rem;
-	}
-
 	a {
 		text-decoration: underline;
 	}
