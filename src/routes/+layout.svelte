@@ -7,7 +7,7 @@
 		['❤️', 'Love is in the air!'],
 		['🍀', 'Luck is on your side!'],
 		['🌻', 'Spring has sprung!'],
-		['🇲🇽', 'Cinco de Mayo!'],
+		['🌹', '...Brings May Flowers!'],
 		['🌈', 'Happy pride month!'],
 		['🎆', 'AMERICA!!!'],
 		['☀️', 'Beach time!'],
