@@ -1,11 +1,10 @@
 import { parseDate } from '$lib';
-import { addMonths} from 'date-fns';
+import { addMonths } from 'date-fns';
 import PocketBase from 'pocketbase';
-
-const pbURL = 'https://dry-weekend.pockethost.io/';
+import { PB_URL } from '$env/static/private';
 
 export async function load({ cookies }) {
-	const client = new PocketBase(pbURL);
+	const client = new PocketBase(PB_URL);
 	const todayDate = parseDate(new Date(Date.now()));
 	const monthAwayDate = parseDate(addMonths(todayDate, 1));
 	// Comparing timestamp to date to keep today's event visible until tomorrow
@@ -26,7 +25,7 @@ export async function load({ cookies }) {
 
 export const actions = {
 	default: async ({ request }) => {
-		const client = new PocketBase(pbURL);
+		const client = new PocketBase(PB_URL);
 		const data = await request.formData();
 
 		const title = data.get('title');
