@@ -4,7 +4,7 @@
 	export let records: RecordModel[];
 </script>
 
-<div class="table-container hidden max-w-screen-xl md:block">
+<div class="table-container hidden max-w-screen-2xl md:block">
 	<table class="table table-hover table-comfortable">
 		<thead>
 			<tr>

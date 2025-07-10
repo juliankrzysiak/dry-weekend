@@ -3,10 +3,10 @@ import type { RecordModel } from 'pocketbase';
 
 export function formatDate(date: string, endDate: string): string {
 	if (endDate) {
-		const firstDate = format(removeUTC(date), 'EEEE, MMMM d');
+		const firstDate = format(removeUTC(date), 'EEE, MMM d');
 		const secondDate = format(removeUTC(endDate), 'MMM d');
 		return (date = `${firstDate} - ${secondDate}`);
-	} else return (date = format(removeUTC(date), 'EEEE, MMMM d · h:mm aaa'));
+	} else return (date = format(removeUTC(date), 'EEE, MMM d · h:mm aaa'));
 }
 
 function removeUTC(date: string) {
